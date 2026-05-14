@@ -56,6 +56,8 @@ const distanzaDa19 = function (n) {
 
 console.log(distanzaDa19(x));  // 14
 console.log(distanzaDa19(y)); // 18 
+/*prende il valore  di x e y e lo mette in n e gli assegna quel valore perchè stiamo dicendo alla funzione: il primo valore che ricevi mettilo ad n*/
+
 console.log('***************************');
 
 /* ESERCIZIO 4 — dentroIntervallo
@@ -66,12 +68,73 @@ let inclusive = 50;
 let exact = 400;
 let exclusive = 5;
 const dentroIntervallo = function (n) {
-    // && = AND (entrambe le condizioni devono essere vere)
-    // || = OR  (basta che una delle condizioni sia vera)
     return (n >= 20 && n <= 100) || n === 400; //fa più o meno quello che farebbe l'if ma in meno passaggi
 };
 
 console.log(dentroIntervallo(inclusive));  // true  
 console.log(dentroIntervallo(exact)); // true  
 console.log(dentroIntervallo(exclusive));  // false 
+/*prende il valore  di let inclusive, let exact,  let exclusive lo mette in n e gli assegna quel valore perchè stiamo dicendo alla funzione: il primo valore che ricevi mettilo ad n*/
+console.log('***************************');
+
+
+/* ESERCIZIO 5 — epify
+   Funzione epify(testo): aggiunge "EPICODE " davanti.
+   Se il testo comincia già con "EPICODE", lo lascia invariato.
+   Usa startsWith.
+*/
+
+const epify = function (testo) {
+    if (testo.startsWith('EPICODE')) {//Controlla se una stringa comincia con "EPICODE"
+        return testo; //Restituisce true o false
+    }
+    return 'EPICODE ' + testo; // aggiungiamo il prefisso davanti
+};
+
+console.log(epify('ciao'));         // "EPICODE ciao"
+console.log(epify('EPICODE ciao')); // "EPICODE ciao" — invariato
+/*in questo caso, stiamo dicendo al console.log di valorizzare 'ciao' su (testo) che è  il primo valore che trova nella funzione*/
+console.log('***************************');
+
+
+/* ESERCIZIO 6 — divisibilePer3o7
+   Funzione divisibilePer3o7(n): true se n positivo E divisibile per 3 O per 7.
+*/
+
+// % = operatore modulo: ritorna il resto della divisione
+const divisibilePer3o7 = function (n) {
+    const positivo = n > 0;
+    const divisibile = n % 3 === 0 || n % 7 === 0; //solito resto
+    // DEVE essere positivo E (divisibile per 3 O per 7)
+    return positivo && divisibile; //tutte e due true
+};
+
+console.log(divisibilePer3o7(9));  // true  — positivo e divisibile per 3
+console.log(divisibilePer3o7(-12)); // false — divisibile per 3 ma non positivo
+console.log(divisibilePer3o7(14)); // true  — positivo e divisibile per 7
+console.log(divisibilePer3o7(22)); // false — positivo ma non divisibile
+console.log('***************************');
+
+
+/* ESERCIZIO 7 — invertiStringa
+   Funzione invertiStringa(testo): ritorna la stringa invertita.
+   Vincolo: niente .reverse() di array.
+   Suggerimento: split("") + for al contrario + join("").
+*/
+
+// split("") = divide ogni carattere della stringa e lo rende un array 
+// join("") = riunisce un array in una stringa
+function invertiStringa (testo) {
+    const caratteri = testo.split(''); // divide ogni carattere e lo mette in un array
+    let risultato = [];
+
+    // partiamo dall'ultimo indice (caratteri.length - 1) e andiamo a ritroso iterando al contratio i--
+    for (let i = caratteri.length - 1; i >= 0; i--) {
+        risultato.push(caratteri[i]); // aggiungiamo ogni carattere all'array risultato
+    }
+
+    return risultato.join(''); // riunisce l'array in una stringa
+};
+
+console.log(invertiStringa('EPICODE')); // "EDOCIPE"
 console.log('***************************');
